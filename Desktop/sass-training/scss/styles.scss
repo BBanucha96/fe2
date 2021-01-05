@@ -1,0 +1,61 @@
+@import "colors";
+
+@mixin btnColor($defColor){
+    background-color: $defColor;
+    &:hover{
+        background-color: darken($color: $defColor, $amount: 15);
+    }
+}
+
+$test: white;
+
+body {
+    background-color: $test;
+
+    p {
+        font-family: arial;
+        font-size: 64px;
+        font-weight: bold;
+        text-align: center;
+        color: black;
+        margin: 28px;
+        margin-bottom: 42px;
+    }
+
+    .container{
+        width: 42%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .btn{
+            min-width: 270px;
+            padding: 5px;
+            font-size: 32px;
+            color: white;
+            border: 0;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            outline: none;
+
+            &:hover{
+                cursor: pointer;
+                border: 3px solid black;
+                padding: 2px;
+            }
+        }
+
+        .btn-green{
+            @include btnColor($green)
+        }
+
+        .btn-blue{
+            @include btnColor($blue)
+        }
+
+        .btn-yellow{
+            @include btnColor($yellow)
+        }
+    }
+}
